@@ -10,7 +10,7 @@ Automatically overlays product SKU text onto WooCommerce product images upon upl
 - Text alignment: left, center, right (centered by metrics)
 - Admin UI: settings page under WooCommerce, live preview (upload or Media Library)
 - Logging: last run log with AJAX pagination, filters, chips, CSV/JSON export
-- Bulk tools: regenerate (force/skip), backup originals, restore originals
+- Bulk tools: regenerate (force/skip), backup originals, restore originals, convert originals (AVIF/WebP), dry-run + CSV
 - Media Library integration: backup column, filters, per-item + bulk + visible + filtered restore, and dry-run CSV export
 
 ## Requirements
@@ -25,7 +25,7 @@ Automatically overlays product SKU text onto WooCommerce product images upon upl
 3. Go to WooCommerce → SKU Image Overlay to configure.
 
 ## Notes
-- Only the original image is modified. Generated sizes are not touched by this plugin.
+- Only the original image is modified. Generated sizes are not touched by this plugin by default.
 - If you run a thumbnail regeneration plugin later, regenerated sizes will reflect whatever the current original image contains.
 - Enable “Backup original before overlay” if you plan to regenerate sizes later from pristine originals.
 
@@ -38,3 +38,12 @@ Automatically overlays product SKU text onto WooCommerce product images upon upl
 
 ## License
 See `readme.txt` (GPLv2 or later).
+
+## Changelog
+
+### 1.1.0
+- Add AVIF/WebP conversion (best available), Imagick-first with GD WebP fallback
+- Add robust restore tools and dry-run CSV exports
+- Per-side margins/inner padding, alignment, line height; preview updates; Google Fonts
+- Logging filters, chips, pagination; CSV/JSON export
+- Graceful behavior without WooCommerce (notice only on Plugins screen)

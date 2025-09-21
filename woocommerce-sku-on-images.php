@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WooCommerce SKU On Images
  * Description: Automatically overlays product SKU text onto WooCommerce product images upon upload/assignment, with admin settings and bulk regeneration.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Harnika Design
  * Author URI: 	https://www.harnikadesign.com
  * Text Domain: woocommerce-sku-on-images
@@ -26,14 +26,7 @@ define( 'WCSIO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 // Activation/Deactivation
 register_activation_hook( __FILE__, function () {
-    // Require WooCommerce
-    if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins', [] ) ), true ) &&
-         ! ( is_multisite() && array_key_exists( 'woocommerce/woocommerce.php', (array) get_site_option( 'active_sitewide_plugins', [] ) ) ) ) {
-        deactivate_plugins( WCSIO_PLUGIN_BASENAME );
-        wp_die( esc_html__( 'WooCommerce SKU On Images requires WooCommerce to be active.', 'woocommerce-sku-on-images' ) );
-    }
-
-    // Create default options
+    // Create default options (no hard dependency check here; we will show admin notice if WooCommerce is missing)
     $defaults = [
         'enabled'     => 1,
         'position'    => 'bottom-right',
@@ -73,9 +66,17 @@ register_deactivation_hook( __FILE__, function () {
 // Bootstrap
 add_action( 'plugins_loaded', function () {
     if ( ! class_exists( 'WooCommerce' ) ) {
-        add_action( 'admin_notices', function () {
-            echo '<div class="notice notice-error"><p>' . esc_html__( 'WooCommerce SKU On Images requires WooCommerce to be active.', 'woocommerce-sku-on-images' ) . '</p></div>';
-        } );
+        $notice_cb = function () {
+            if ( ! function_exists( 'get_current_screen' ) ) { return; }
+            $screen = get_current_screen();
+            if ( ! $screen ) { return; }
+            // Show only on the Plugins screen (single-site and network)
+            if ( in_array( $screen->id, [ 'plugins', 'plugins-network' ], true ) ) {
+                echo '<div class="notice notice-warning"><p>' . esc_html__( 'WooCommerce SKU On Images is inactive because WooCommerce is not active. Activate WooCommerce to use this plugin.', 'woocommerce-sku-on-images' ) . '</p></div>';
+            }
+        };
+        add_action( 'admin_notices', $notice_cb );
+        add_action( 'network_admin_notices', $notice_cb );
         return;
     }
 
