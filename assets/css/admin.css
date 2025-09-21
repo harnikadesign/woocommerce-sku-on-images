@@ -1,0 +1,62 @@
+/* Admin styles for SKU Image Overlay */
+.wcsio-wrap .wcsio-status {
+  margin: 16px 0;
+  padding: 12px;
+  background: #fff;
+  border-left: 4px solid #2271b1;
+}
+.wcsio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.wcsio-card { background: #fff; padding: 16px; border: 1px solid #e5e5e5; }
+.wcsio-preview { border: 1px dashed #ccc; min-height: 200px; display: flex; align-items: center; justify-content: center; color: #666; }
+.wcsio-field { margin-bottom: 12px; }
+.wcsio-field label { display: block; font-weight: 600; margin-bottom: 4px; }
+.wcsio-actions { margin-top: 16px; }
+
+/* Margin grid */
+.wcsio-margin-grid { position: relative; display: grid; grid-template-columns: 80px 80px 80px; grid-template-rows: 40px 40px 40px; gap: 6px; align-items: center; justify-content: center; }
+.wcsio-margin-grid input { width: 100%; }
+.wcsio-mg-top { grid-column: 2 / 3; grid-row: 1 / 2; }
+.wcsio-mg-left { grid-column: 1 / 2; grid-row: 2 / 3; }
+.wcsio-mg-center { grid-column: 2 / 3; grid-row: 2 / 3; text-align: center; color: #999; }
+.wcsio-mg-right { grid-column: 3 / 4; grid-row: 2 / 3; }
+.wcsio-mg-bottom { grid-column: 2 / 3; grid-row: 3 / 4; }
+
+/* Badges */
+.wcsio-badge { display: inline-block; padding: 2px 6px; margin-left: 8px; border-radius: 3px; font-size: 12px; font-weight: 600; line-height: 1; }
+.wcsio-badge--forced { background: #d63638; color: #fff; }
+
+/* Log status chips */
+.wcsio-chip { display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; line-height:1; font-weight:600; }
+.wcsio-chip--ok { background:#2e7d32; color:#fff; }
+.wcsio-chip--skip { background:#607d8b; color:#fff; }
+.wcsio-chip--fail { background:#d32f2f; color:#fff; }
+
+/* Log row backgrounds (subtle) */
+.wcsio-log-table tbody tr.wcsio-row--ok { background: #edf7ed !important; }
+.wcsio-log-table tbody tr.wcsio-row--skip { background: #f3f6f9 !important; }
+.wcsio-log-table tbody tr.wcsio-row--fail { background: #fdecea !important; }
+.wcsio-log-table tbody tr.wcsio-row--ok td:first-child { border-left: 4px solid #2e7d32; }
+.wcsio-log-table tbody tr.wcsio-row--skip td:first-child { border-left: 4px solid #607d8b; }
+.wcsio-log-table tbody tr.wcsio-row--fail td:first-child { border-left: 4px solid #d32f2f; }
+
+/* Intensity overrides */
+.wcsio-intensity--subtle .wcsio-log-table tbody tr.wcsio-row--ok { background: #f6fbf6 !important; }
+.wcsio-intensity--subtle .wcsio-log-table tbody tr.wcsio-row--skip { background: #f7f9fc !important; }
+.wcsio-intensity--subtle .wcsio-log-table tbody tr.wcsio-row--fail { background: #fdf1ef !important; }
+.wcsio-intensity--subtle .wcsio-log-table tbody tr.wcsio-row--ok td:first-child { border-left-color: #66bb6a; }
+.wcsio-intensity--subtle .wcsio-log-table tbody tr.wcsio-row--skip td:first-child { border-left-color: #90a4ae; }
+.wcsio-intensity--subtle .wcsio-log-table tbody tr.wcsio-row--fail td:first-child { border-left-color: #ef5350; }
+
+.wcsio-intensity--medium .wcsio-log-table tbody tr.wcsio-row--ok { background: #edf7ed !important; }
+.wcsio-intensity--medium .wcsio-log-table tbody tr.wcsio-row--skip { background: #f3f6f9 !important; }
+.wcsio-intensity--medium .wcsio-log-table tbody tr.wcsio-row--fail { background: #fdecea !important; }
+.wcsio-intensity--medium .wcsio-log-table tbody tr.wcsio-row--ok td:first-child { border-left-color: #2e7d32; }
+.wcsio-intensity--medium .wcsio-log-table tbody tr.wcsio-row--skip td:first-child { border-left-color: #607d8b; }
+.wcsio-intensity--medium .wcsio-log-table tbody tr.wcsio-row--fail td:first-child { border-left-color: #d32f2f; }
+
+.wcsio-intensity--strong .wcsio-log-table tbody tr.wcsio-row--ok { background: #c8e6c9 !important; }
+.wcsio-intensity--strong .wcsio-log-table tbody tr.wcsio-row--skip { background: #e3eaf2 !important; }
+.wcsio-intensity--strong .wcsio-log-table tbody tr.wcsio-row--fail { background: #ffcdd2 !important; }
+.wcsio-intensity--strong .wcsio-log-table tbody tr.wcsio-row--ok td:first-child { border-left-color: #1b5e20; }
+.wcsio-intensity--strong .wcsio-log-table tbody tr.wcsio-row--skip td:first-child { border-left-color: #455a64; }
+.wcsio-intensity--strong .wcsio-log-table tbody tr.wcsio-row--fail td:first-child { border-left-color: #b71c1c; }

@@ -1,0 +1,21 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+
+# Logs & temp
+*.log
+*.tmp
+npm-debug.log*
+yarn-error.log*
+
+# Node / PHP vendor (not used now, but safe)
+node_modules/
+vendor/
+
+# Source maps
+*.map
+
