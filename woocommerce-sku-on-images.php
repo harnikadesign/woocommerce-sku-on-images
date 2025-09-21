@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce SKU On Images
  * Description: Automatically overlays product SKU text onto WooCommerce product images upon upload/assignment, with admin settings and bulk regeneration.
  * Version: 1.1.0
- * Author: Harnika Design
+ * Author: Harnika Design (OPC) Private Limited
  * Author URI: 	https://www.harnikadesign.com
  * Text Domain: woocommerce-sku-on-images
  * License: GPLv2 or later
